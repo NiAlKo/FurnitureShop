@@ -1869,6 +1869,108 @@ body {
   }
 }
 
+/**======================-FURNITURE-=================*/
+.furniture {
+  padding-bottom: 85px;
+}
+@media (max-width: 1270px) {
+  .furniture {
+    padding-bottom: calc(40px + 45 * ((100vh - 320px) / 950));
+  }
+}
+.furniture__container {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+.furniture__label {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--gray-dark);
+}
+@media (max-width: 1270px) {
+  .furniture__label {
+    font-size: calc(16px + 4 * ((100vh - 320px) / 950));
+  }
+}
+.furniture__label:not(:last-child) {
+  margin-bottom: 0.4em;
+}
+.furniture__title {
+  margin-bottom: 0.8em;
+}
+.furniture__body {
+  position: relative;
+}
+@media (any-hover: none) {
+  .furniture__body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+.furniture__items {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 16px;
+}
+@media (any-hover: hover) {
+  .furniture__items {
+    justify-content: center;
+  }
+}
+.furniture__column {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 -8px;
+}
+.furniture__column:first-child {
+  justify-content: flex-end;
+}
+.furniture__row {
+  display: inline-grid;
+  padding: 0 8px;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  gap: 16px;
+}
+.furniture__row:not(:last-child) {
+  margin-bottom: 16px;
+}
+.furniture img {
+  max-width: none;
+}
+
+.row-furniture--left-top {
+  justify-content: end;
+  align-items: end;
+}
+.row-furniture--left-bottom {
+  justify-content: end;
+  align-items: start;
+}
+.row-furniture--center {
+  display: block;
+}
+.row-furniture--right-top {
+  align-items: end;
+}
+.row-furniture--right-bottom {
+  align-items: start;
+}
+@media (any-hover: hover) {
+  .row-furniture__item img {
+    transition: all 0.5s ease-in-out;
+    filter: grayscale(1);
+  }
+  .row-furniture__item:hover img {
+    filter: grayscale(0);
+  }
+}
+
 /**======================-FOOTER-=================*/
 .footer__body {
   border-top: 1px solid var(--gray-extra-light);
