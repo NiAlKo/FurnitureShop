@@ -1,6 +1,10 @@
 src
 node_modules
 gulp
+src/files
+src/fonts
+src/img
+src/favicon.ico
 dist/css/style.css
 dist/files
 package-lock.json
