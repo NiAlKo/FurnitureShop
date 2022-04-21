@@ -1,0 +1,81 @@
+/*!=================RESET=================!*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 16px;
+}
+/** Выставляем основные настройки по-умолчанию для body */
+body {
+  min-width: $min-width;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  font-family: $font-family;
+}
+
+/** Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/** Убираем внутренние отступы */
+ul,
+ol {
+  padding: 0;
+}
+
+/** Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/** Для элементов a, у которых есть класс, убираем подчеркивание*/
+a[class] {
+  text-decoration: none;
+}
+/** Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/** Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/** Наследуем шрифты для инпутов и кнопок*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/** Обнуляем кнопоки*/
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}

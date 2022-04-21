@@ -1,0 +1,46 @@
+/**======================-ADVANTAGES-=================*/
+
+.advantages {
+  @include adaptive-value("padding-top", 88, 30, 1);
+  @include adaptive-value("padding-bottom", 88, 30, 1);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: inline-grid;
+    padding: 15px 0;
+    grid-template: auto auto / 85px 1fr;
+    @media (max-width: ($md2 + px)) {
+      min-width: 280px;
+    }
+    @media (max-width: ($md3 + px)) {
+      grid-template: auto auto / auto 1fr;
+    }
+  }
+
+  &__icon {
+    text-align: center;
+    align-self: center;
+    grid-row: span 2;
+    & img {
+      display: inline-block;
+    }
+    @media (max-width: ($md3 + px)) {
+      padding-right: 15px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 2px/18px * 1em;
+  }
+
+  &__text {
+    color: var(--gray);
+  }
+}

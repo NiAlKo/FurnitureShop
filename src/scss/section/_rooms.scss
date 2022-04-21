@@ -1,0 +1,200 @@
+/**======================-ROOMS-=================*/
+.rooms {
+  background-color: var(--bg);
+  @include adaptive-value("padding-top", 44, 30, 1);
+  @include adaptive-value("padding-bottom", 44, 30, 1);
+  &__container {
+    @media (min-width: ($md2 + px)) {
+      display: flex;
+    }
+  }
+
+  &__body {
+    flex: 0 0 465 / 1240 * 100%;
+    position: relative;
+    z-index: 5;
+    align-self: center;
+    @media (min-width: ($md2 + px)) {
+      @include adaptive-value("padding-right", 80, 30, 1);
+    }
+    @media (max-width: ($md2 + px)) {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 8px / 40px * 1em;
+    }
+    text-align: left;
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__btn {
+    background-color: var(--base-brown);
+    color: var(--base-white);
+    min-width: 180px;
+    transition: opacity 0.3s ease-in-out;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: flex-start;
+    @media (max-width: ($md4 + px)) {
+      margin: 0 -15px;
+    }
+  }
+}
+
+.slider-rooms {
+  position: relative;
+  &__body {
+    overflow: visible;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100vw;
+      background-color: var(--bg);
+      transform: translate(-100%, 0);
+    }
+  }
+
+  &__slide {
+    position: relative;
+    width: 372px;
+    overflow: hidden;
+    @include adaptive-value("min-height", 585, 400, 1);
+    &.swiper-slide-active {
+      .slider-rooms__img {
+        height: 100%;
+      }
+    }
+    @media (max-width: ($md4 + px)) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transition: height 0.8s ease-in-out;
+    @media (min-width: ($md3 + px)) {
+      height: 83%;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    color: inherit;
+    max-width: 240px;
+    @include adaptive-value("padding", 32, 15, 1);
+    @include adaptive-value("left", 24, 15, 1);
+    @include adaptive-value("bottom", 24, 15, 1);
+    background: rgba(255, 255, 255, 0.8);
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(31px);
+    }
+    &::before {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      background-color: var(--base-brown);
+      color: var(--base-white);
+      transform: translate(100%, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media (any-hover: hover) {
+      &:hover::before {
+        background-color: var(--base-white);
+        color: var(--base-brown);
+      }
+    }
+    &:active::before {
+      opacity: 0.5;
+    }
+  }
+
+  &__label {
+  }
+  &__title {
+    font-weight: 600;
+    @include adaptive-value("font-size", 28, 24, 1);
+  }
+  &__arrows {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 24px;
+    width: calc(100% - 48px);
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    @media (min-width: ($md1 + px)) {
+      left: -24px;
+      width: calc(100% + 48px);
+    }
+    @media (max-width: ($md3 + px)) {
+      display: none;
+    }
+  }
+
+  &__dotts {
+    @media (min-width: ($md3 + px)) {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      left: 396px;
+    }
+    @media (max-width: ($md3 + px)) {
+      justify-content: center;
+      padding-top: 15px;
+    }
+  }
+}
+
+.label-slider {
+  display: grid;
+  grid-template-columns: auto 27px auto;
+  color: var(--gray-dark);
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  &__number {
+  }
+
+  &__line {
+    border: 1px solid var(--gray-dark);
+  }
+
+  &__text {
+  }
+}

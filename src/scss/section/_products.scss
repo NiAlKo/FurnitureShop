@@ -1,0 +1,182 @@
+/**======================-PRODUCTS-=================*/
+
+.products {
+  @include adaptive-value("padding-bottom", 44, 30, 1);
+  &__container {
+  }
+
+  &__title {
+    margin-bottom: 32px / 40px * 1em;
+  }
+
+  &__items {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  }
+
+  &__item {
+  }
+
+  &__footer {
+    padding-top: 32px;
+    text-align: center;
+  }
+
+  &__more {
+    border: 1px solid var(--base-brown);
+    min-width: 245px;
+    &.__hold {
+      opacity: 0.2;
+      cursor: default;
+    }
+  }
+}
+
+.item-product {
+  position: relative;
+  background-color: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  @media (any-hover: hover) {
+    &:hover {
+      .item-product__actions {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &__labels {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    @include adaptive-value("top", 24, 10, 1);
+    @include adaptive-value("right", 24, 10, 1);
+  }
+
+  &__label {
+    flex: 0 0 48px;
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--base-white);
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &--new {
+      background-color: var(--base-green);
+    }
+    &--sale {
+      background-color: var(--base-red);
+    }
+  }
+
+  &__img {
+    padding-bottom: 301px / 285px * 100%;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    padding: 16px 16px 30px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    @include adaptive-value("font-size", 24, 20, 1);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 8px / 24px * 1em;
+  }
+
+  &__text {
+    color: var(--gray);
+    margin-bottom: 8px / 24px * 1em;
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+    @include adaptive-value("font-size", 20, 16, 1);
+    font-weight: 600;
+    &--old {
+      @include adaptive-value("font-size", 16, 14, 1);
+      font-weight: normal;
+      margin-left: 16px;
+      color: var(--gray-light);
+      text-decoration: line-through;
+    }
+  }
+
+  &__actions {
+    @media (any-hover: none) {
+      padding-top: 15px;
+    }
+    @media (any-hover: hover) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba($color: #3a3a3a, $alpha: 0.74);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.actions-product {
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    flex: 1 1 100%;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+    &.__hold {
+      opacity: 0.2;
+      cursor: default;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    &::before {
+      margin-right: 10px;
+      font-style: 16px;
+    }
+    @media (any-hover: hover) {
+      color: var(--base-white);
+      &:hover {
+        color: var(--base-brown);
+      }
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}

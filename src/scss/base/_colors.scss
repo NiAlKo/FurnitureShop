@@ -1,0 +1,36 @@
+/*!=================-COLORS-=================!*/
+:root {
+  --base-white: #ffffff;
+  --base-black: #000000;
+  --base-green: #2ec1ac;
+  --base-red: #e97171;
+  --base-brown: #e89f71;
+
+  --alfa-brown: rgba(232, 160, 115, 0.3);
+
+  --gray-extra-dark: #3a3a3a;
+  --gray-dark: #616161;
+  --gray: #898989;
+  --gray-light: #b0b0b0;
+  --gray-extra-light: #d8d8d8;
+
+  --light-bg: #f4f5f7;
+  --bg: #fcf8f3;
+  --bg-element: #f9f1e7;
+
+  --icon-gray: #333333;
+  --icon-purple: #262f56;
+}
+.__h2,
+.__h3 {
+  color: var(--gray-extra-dark);
+}
+.__menu-title,
+.__logo {
+  color: var(--base-black);
+}
+.__your-setup,
+.__date,
+.__placeholder-search {
+  color: var(--gray-dark);
+}

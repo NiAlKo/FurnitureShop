@@ -1,0 +1,75 @@
+// /*!=================-SETTINGS-=================!*/
+@use "sass:math";
+// Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff2") format("woff2"), url("../fonts/#{$file_name}.woff") format("woff");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+// Mixin for adaptive layers for use css without mixin
+// selector {
+// 	property: calc(minSize+(lauoytSize-numberMin)*((100vh-320px)/(maxWidth-320)));
+// 	}
+
+// Адаптивный шрифт
+@mixin adaptiv-font($pcSize, $mobSize, $maxSize) {
+  $addSize: $pcSize - $mobSize;
+  @if $type == 1 {
+    // if < container
+    font-size: $pctSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+  } @else if $type == 2 {
+    // if > container
+    font-size: $pcSize + px;
+    @media (min-width: #{$maxWidthContainer + px}) {
+      font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+    }
+  } @else {
+    // always
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+  }
+}
+// Адаптивное свойство
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type == 1 {
+    // if < container
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vh - 320px) / #{$maxWidthContainer - 320}));
+    }
+  } @else if $type == 2 {
+    // if > container
+    #{$property}: $startSize + px;
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vh - 320px) / #{$max-width - 320}));
+    }
+  } @else {
+    // always
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vh - 320px) / #{$max-width - 320}));
+  }
+} // @include adaptive-value("padding", 50, 20, 0);
+
+// Сonversion to other units
+// To %
+@function prc($pxOne, $pxTwo) {
+  $result: math.div($px, 16) * 100%;
+  @return $result;
+}
+// To REM
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+// To EM
+@function em($px) {
+  $result: math.div($px, 16) + em;
+  @return $result;
+}

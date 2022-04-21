@@ -1,0 +1,206 @@
+/**======================-SLIDER-=================*/
+
+.main-slider {
+  background-color: var(--bg);
+  &__container {
+    position: relative;
+    @media (min-width: ($md2 + px)) {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 376px;
+        width: 100vw;
+        height: 100%;
+        background-color: var(--bg-element);
+      }
+    }
+  }
+  &__body {
+    padding-top: 140px;
+    position: relative;
+    z-index: 2;
+    @media (max-width: ($md2 + px)) {
+      padding-top: 80px;
+    }
+    @media (max-width: ($md3 + px)) {
+      padding-top: 50px;
+    }
+    @media (min-width: ($md2 + px)) {
+      display: flex;
+    }
+  }
+
+  &__content {
+    align-self: flex-start;
+    flex: 0 0 494 / 1240 * 100%;
+    @include adaptive-value("margin-bottom", 80, 15, 1);
+    @media (max-width: ($md2 + px)) {
+      margin: 0 -15px;
+    }
+  }
+
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: flex-end;
+    @media (min-width: ($md2 + px)) {
+      padding-left: 32px;
+    }
+  }
+}
+.content-main {
+  position: relative;
+  z-index: 5;
+  padding-right: 15px;
+  padding-left: 15px;
+  background: rgba(255, 255, 255, 0.72);
+  @include adaptive-value("padding-top", 60, 15, 1);
+  @include adaptive-value("padding-bottom", 60, 15, 1);
+  @media (min-width: ($md2 + px)) {
+    @include adaptive-value("padding", 60, 1, 1);
+    background-color: rgba(255, 255, 255, 0.8);
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+  }
+  &__title {
+    font-weight: 700;
+    @include adaptive-value("font-size", 56, 24, 1);
+    line-height: 1.2;
+    color: var(--gray-extra-dark);
+    &:not(:last-child) {
+      margin-bottom: 16px / 56px * 1em;
+    }
+  }
+
+  &__text {
+    @include adaptive-value("font-size", 20, 16, 1);
+    color: var(--gray);
+    &:not(:last-child) {
+      margin-bottom: 48px / 20px * 1em;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    font-weight: 600;
+    @include adaptive-value("min-height", 78, 45, 1);
+    @include adaptive-value("font-size", 20, 16, 1);
+    background-color: var(--base-brown);
+    color: var(--base-white);
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &:active {
+      opacity: 0.4;
+    }
+  }
+}
+.slider-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media (max-width: ($md2 + px)) {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+  &__controls {
+    align-self: stretch;
+    margin-bottom: 20px;
+    @media (max-width: ($md2 + px)) {
+      margin: 10px 0px 20px 0px;
+    }
+  }
+
+  &__body {
+    overflow: visible;
+    @media (min-width: ($md2 + px)) {
+      @include adaptive-value("width", 934, 290, 1);
+    }
+    @media (max-width: ($md2 + px)) {
+      margin: 0 -15px;
+    }
+  }
+
+  &__slide {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    padding-bottom: 59.3%;
+  }
+
+  &__content {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-width: 295px;
+    max-height: 300px;
+    overflow: auto;
+    @include adaptive-value("padding", 24, 15, 1);
+    background: rgba(255, 255, 255, 0.8);
+    @media (min-width: ($md3 + px)) {
+      position: absolute;
+      min-width: 350px;
+      @include adaptive-value("right", 40, 0, 1);
+      @include adaptive-value("bottom", 40, 0, 1);
+    }
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+  }
+
+  &__title {
+    @include adaptive-value("font-size", 28, 22, 1);
+    font-weight: 600;
+    line-height: 1.2;
+    &:not(:last-child) {
+      margin-bottom: 4px / 28px * 1em;
+    }
+  }
+
+  &__text {
+    color: var(--gray);
+    &:not(:last-child) {
+      margin-bottom: 8px / 16px * 1em;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    font-weight: 600;
+    justify-content: space-between;
+    @include adaptive-value("font-size", 20, 16, 1);
+    &::before {
+      margin-right: 10px;
+      font-size: 12px;
+    }
+  }
+}
+.controls-slider-main {
+  display: flex;
+  align-items: center;
+  &__dotts {
+    flex: 1 1 auto;
+    @media (min-width: ($md2 + px)) {
+      padding-right: 20px;
+    }
+    @media (max-width: ($md2 + px)) {
+      justify-content: center;
+    }
+  }
+
+  &__arrows {
+    @media (max-width: ($md2 + px)) {
+      display: none;
+    }
+  }
+}

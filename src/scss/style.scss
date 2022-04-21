@@ -1,0 +1,83 @@
+//**======================-ПЕРЕМЕННЫЕ-=================*/
+
+$min-width: 320px;
+$max-width: 1440;
+$maxWidthContainer: 1270;
+
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+// /**======================-МИКСИНЫ-=================*/
+
+@import "./base/settings";
+
+/**======================-ШРИФТЫ-=================*/
+@import "./base/fonts";
+// /**======================-ШРИФТЫ_ПОДКЛЮЧАЕМЫЕ-=================*/
+
+/**======================-ШРИФТЫ_ИКОНОЧНЫЕ-=================*/
+@import "./base/icons";
+
+// /**======================-ШРИФТЫ_ПО_УМОЛЧАНИЮ-=================*/
+@import "./base/typography";
+$font-family: "Gilroy", sans-serif;
+//**======================-ПАЛИТРА-=================*/
+@import "./base/colors";
+
+//**======================-ОБНУЛЕНИЕ, ОБЩИЕ_ПАРАМЕТРЫ-=================*/
+@import "./base/reset";
+body {
+  @extend %all-text;
+  color: var(--gray-extra-dark);
+  background-color: var(--base-white);
+  @media (max-width: 767px) {
+    &.__lock {
+      overflow: hidden;
+    }
+  }
+}
+
+//**======================-УПАКОВКА-=================*/
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+//**======================-ОСНОВНАЯ_СЕТКА-=================*/
+[class*="__container"] {
+  max-width: $maxWidthContainer + px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.main-page {
+  flex: 1 1 auto;
+  &__main-slider {
+  }
+  &__advantages {
+  }
+  &__products {
+  }
+  &__rooms {
+  }
+  &__tips {
+  }
+  &__furniture {
+  }
+}
+
+@import "./base/ui";
+//**======================-НЕЗАВИСИМЫЕ_БЛОКИ-=================*/
+
+//**======================-ПОДКЛЮЧЕНИЕ_СТИЛЕЙ-=================*/
+@import "./section/header";
+@import "./section/slider";
+@import "./section/advantages";
+@import "./section/products";
+@import "./section/rooms";
+@import "./section/tips";
+@import "./section/furniture";
+
+@import "./section/footer";

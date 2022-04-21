@@ -1,0 +1,99 @@
+/**======================-FURNITURE-=================*/
+.furniture {
+  @include adaptive-value("padding-bottom", 85, 40, 1);
+  &__container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__label {
+    @include adaptive-value("font-size", 20, 16, 1);
+    font-weight: 600;
+    text-align: center;
+    color: var(--gray-dark);
+    &:not(:last-child) {
+      margin-bottom: 8px / 20px * 1em;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px / 40px * 1em;
+  }
+
+  &__body {
+    position: relative;
+    @media (any-hover: none) {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 16px;
+    @media (any-hover: hover) {
+      justify-content: center;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 -8px;
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &__row {
+    display: inline-grid;
+    padding: 0 8px;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    gap: 16px;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+  img {
+    max-width: none;
+  }
+}
+
+.row-furniture {
+  &--left-top {
+    justify-content: end;
+    align-items: end;
+  }
+  &--left-bottom {
+    justify-content: end;
+    align-items: start;
+  }
+  &--center {
+    display: block;
+  }
+  &--right-top {
+    align-items: end;
+  }
+  &--right-bottom {
+    align-items: start;
+  }
+  &__item {
+    @media (any-hover: hover) {
+      img {
+        transition: all 0.5s ease-in-out;
+        filter: grayscale(1);
+      }
+      &:hover {
+        img {
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+}

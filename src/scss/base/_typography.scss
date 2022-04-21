@@ -1,0 +1,42 @@
+// /*!=================-TYPOGRAPHY-=================!*/
+
+%all-text {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.__h2 {
+  font-weight: 700;
+  @include adaptive-value("font-size", 40, 24, 1);
+  line-height: 1.2;
+  text-align: center;
+}
+.__h3 {
+  font-weight: 600;
+  @include adaptive-value("font-size", 24, 20, 1);
+  line-height: 1.2;
+}
+.__h3-galary {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+}
+.__menu-title,
+.__logo {
+  font-weight: 700;
+  @include adaptive-value("font-size", 24, 20, 1);
+  line-height: 1.21;
+}
+.__your-setup {
+  font-weight: 600;
+  font-size: 20px;
+}
+.__date,
+.__placeholder-search {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.menu__arrow {
+  font-size: 8px;
+}
